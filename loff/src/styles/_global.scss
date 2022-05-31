@@ -1,0 +1,41 @@
+// @import "./variables";
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fira sans';
+    color: map-get($colors, text-primary);
+}
+html {
+    height: 100%;
+}
+#root {
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: map-get($font-size, h1);
+}
+h2 {
+    font-size: map-get($font-size, h2);
+}
+h3 {
+    font-size: map-get($font-size, h3);
+}
+h4 {
+    font-size: map-get($font-size, h4);
+}
+h5 {
+    font-size: map-get($font-size, h5);
+}
+p {
+    font-size: map-get($font-size, body);
+}
+
+
+
+// h1: 42px,
+// main-heading: 36px,
+// sub-heading1: 32px,
+// sub-heading2: 28px,
+// body: 18px,

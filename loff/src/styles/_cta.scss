@@ -1,0 +1,22 @@
+
+.cta-1 {
+    background-color: map-get($colors, cta-1);
+    font-family: map-get($fonts, heading);
+    color: white;
+    width: 200px;
+    height: 55px;
+    text-align: center;
+    margin: 3rem auto;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    display: block;
+    // box-shadow: 0 0 0 2px rgb(0, 0, 0) inset;
+}
+
+.cta-1:hover {
+    background-color: lighten($color: map-get($colors, cta-1), $amount: 10);
+}

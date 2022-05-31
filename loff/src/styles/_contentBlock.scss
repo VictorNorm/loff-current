@@ -1,0 +1,111 @@
+
+.contentBlock {
+    position: relative;
+    margin: 3rem 0rem;
+    max-width: 90%;
+    display: flex;
+    height: fit-content;
+    h2 {
+        font-size: map-get($font-size, main-heading);
+        margin-bottom: 1rem;
+    }
+    .contentBlock__text {
+        width: 55%;
+        border: 10px solid #E4EAF0;
+        border-radius: 5px;
+        padding: 2rem 4rem 2rem 2rem;
+        box-shadow: 0px 0px 10px rgb(155, 155, 155);
+        p {
+            font-family: map-get($fonts, body);
+            font-size: 18px;
+            margin-bottom: 2rem;
+        }
+    }
+    a {
+        text-decoration: none;
+    }
+    .contentBlock__image-container {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        width: 50%;
+        height: 80%;
+        
+        img {
+            box-shadow: 0px 0px 5px rgb(107, 107, 107);
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            border: 5px solid #001361;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+    }
+}
+
+.contentBlock-reverse {
+    position: relative;
+    margin: 3rem auto;
+    max-width: 90%;
+    display: flex;
+    height: fit-content;
+    h2 {
+        font-size: map-get($font-size, main-heading);
+        margin-bottom: 1rem;
+    }
+    .contentBlock-reverse__text {
+        width: 55%;
+        border: 10px solid #E4EAF0;
+        border-radius: 5px;
+        padding: 2rem 4rem 2rem 2rem;
+        box-shadow: 0px 0px 10px rgb(155, 155, 155);
+        p {
+            font-family: map-get($fonts, body);
+            font-size: 18px;
+            margin-bottom: 2rem;
+        }
+    }
+    a {
+        text-decoration: none;
+    }
+    .contentBlock-reverse__icon-container {
+        display: flex;
+        list-style: none;
+        margin-bottom: 2rem;
+    }
+    .contentBlock-reverse__image-container {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        width: 50%;
+        height: 80%;
+        border: 5px solid #001361;
+        border-radius: 5px;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: 1fr 1fr;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+}
+
+@media (max-width: 960px) {
+    .contentBlock, .contentBlock-reverse {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    .contentBlock__text, .contentBlock-reverse__text {
+        width: 100% !important;
+        padding: 2rem !important;
+    }
+    .contentBlock__image-container, .contentBlock-reverse__image-container {
+        position: static !important;
+        width: 100% !important;
+        margin-top: 1rem;
+    }
+}

@@ -1,0 +1,30 @@
+$colors: (
+    text-primary: #001361,
+    cta-1: #33ec33,
+    background: #E4EAF0,
+);
+
+$shadows: (
+    light: 0px 0px 5px rgb(176, 176, 176),
+    med: 0px 0px 5px rgb(144, 144, 144),
+    dark: 0px 0px 5px rgb(107, 107, 107),
+    darker: 0px 0px 5px rgb(65, 65, 65),
+);
+
+$fonts: (
+    heading: "Fira sans",
+    body: "Catamaran",
+);
+
+$font-size: (
+    h1: 42px,
+    h2: 36px,
+    h3: 32px,
+    h4: 28px,
+    h5: 24px,
+    body: 18px,
+);
+
+// @function getColor($colors) {      
+//     @return map-get($colors, $color);
+//     }

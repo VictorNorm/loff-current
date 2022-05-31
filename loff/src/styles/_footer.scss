@@ -1,0 +1,23 @@
+footer {
+    position: sticky;
+    top: 100%;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    box-shadow: 0px 0px 10px rgb(167, 167, 167);
+    background-color: map-get($colors, background );
+    margin-top: 2rem;
+}
+footer ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px #ccc;
+}
+footer li {
+    padding: 0.75rem;
+}

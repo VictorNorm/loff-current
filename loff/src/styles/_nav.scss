@@ -1,0 +1,115 @@
+nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 110px;
+    box-shadow: 0px 0px 10px rgb(167, 167, 167);
+}
+nav ul {
+    display: flex;
+    list-style: none;
+}
+.logoContainer {
+    height: 100%;
+    margin: 0 auto;
+}
+.logoContainer img {
+    height: 100%;
+}
+.nav__link-container,
+.nav__icon-container {
+    width: 355px;
+}
+.nav__icon-container {
+    justify-content: flex-end;
+}
+.nav__link-container a {
+margin-right: 1rem;
+text-decoration: none;
+font-family: map-get($fonts, heading);
+font-size: 18px;
+}
+.nav__link-container a:hover {
+    text-decoration: underline;
+}
+.nav__icon-container li, .some-link{
+    margin-left: 1rem;
+    font-size: 1.5rem;
+    transition: all 0.2s;
+    box-shadow: 0px 0px 3px rgb(138, 138, 138);
+    width: 55px;
+    height: 40px;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-transition: all 0.2s;
+}
+.nav__icon-container li:hover {
+    scale: 1.1;
+    cursor: pointer;
+    -webkit-transform: scale(1.1);
+}
+
+#youtube {
+    svg {
+        path {
+            color: 	#FF0000 !important; 
+        }
+    }
+}
+#facebook {
+    svg {
+        path {
+            color: 	#4267B2 !important; 
+        }
+    }
+}
+#instagram {
+    svg {
+        path {
+            color: 	#8a3ab9 !important; 
+        }
+    }
+}
+#tiktok {
+    svg {
+        path {
+            color: 	black !important; 
+        }
+    }
+}
+#youtube {
+    svg {
+        path {
+            color: 	#FF0000 !important; 
+        }
+    }
+}
+
+@media (max-width: 960px) {
+    .logoContainer {
+        height: 50%;
+    }
+    .nav__link-container,
+    .nav__icon-container {
+        li, a {
+            margin: 0;
+        }
+        justify-content: space-between;
+    }
+    .nav__link-container {
+        margin-top: 1rem;
+    }
+    
+    nav {
+        height: 200px;
+        .wrapper {
+            flex-direction: column;
+            height: 100%;
+        }
+    }
+}
