@@ -46,6 +46,7 @@ git clone git@github.com:NoroffFEU/portfolio-1-example.git
 
 ```
 npm install
+npm i sass
 npm i react-helmet
 ```
 
