@@ -1,6 +1,5 @@
 # Loff
 
-A simple overview of the use/purpose of the project.
 
 A website primarily for sponsors viewing the content produced by Loff
 
