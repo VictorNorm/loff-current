@@ -12,6 +12,9 @@ Information about every show is published on the site, showing demographics from
 
 The site also serves to drive traffic to their other channels and their own podcast.
 
+The project is using Sanity as the backend.
+https://www.sanity.io/
+
 Other channels:
 
 - Facebook
