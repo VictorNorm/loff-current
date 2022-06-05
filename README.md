@@ -1,27 +1,34 @@
-# loff-current
-
-# Your project title
-
-![image](https://user-images.githubusercontent.com/52622303/164316813-4b12d99f-aeb7-4069-85cf-e72b3a50ac99.png)
+# Loff
 
 A simple overview of the use/purpose of the project.
 
+A website primarily for sponsors viewing the content produced by Loff
+
 ## Description
 
-Add a more detailed description of what your project entails and set out to do.
+The main purpose of the project is to display information about the content produced by Loff.
+They want their sponsors and potential sponsors to be able to look up information about the employees, their series and podcasts and potential profiles related to every project.
 
-You can add some bullet points if you'd like to:
+Information about every show is published on the site, showing demographics from Youtube, Instagram and Tiktok.
 
-- List item 1
-- List item 2
-- List item 3
+The site also serves to drive traffic to their other channels and their own podcast.
+
+Other channels:
+
+- Facebook
+- Youtube
+- Instagram
+- Tiktok
 
 ## Built With
 
-You can list a the tech stack that you've used over here
+The project is setup using create-react-app with typescript template.
 
-- [React.js](https://reactjs.org/)
-- [Bootstrap](https://getbootstrap.com)
+Technologies used
+
+- React
+- Typescript
+- Sass
 
 ## Getting Started
 
@@ -39,6 +46,7 @@ git clone git@github.com:NoroffFEU/portfolio-1-example.git
 
 ```
 npm install
+npm i react-helmet
 ```
 
 ### Running
