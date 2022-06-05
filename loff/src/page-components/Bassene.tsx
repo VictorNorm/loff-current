@@ -1,37 +1,51 @@
 import { useState, useEffect } from "react";
-import {
-  baseUrl,
-  baseImageUrl,
-  newBaseUrl,
-  newBaseImageUrl,
-} from "../components/api";
+import { newBaseUrl, newBaseImageUrl } from "../components/api";
 import Wrapper from "../components/layout/Wrapper";
 import EmployeesContainer from "../components/layout/EmployeesContainer";
 import EmployeeCard from "../components/EmployeeCard";
 import convertImageUrl from "../functions/convertImageUrl";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet";
 
 function Bassene() {
   const [employeeData, setEmployeeData] = useState<any[]>([]);
-  const [isFetched, setIsfetched] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
   useEffect(() => {
     async function fetchBassene() {
-      const url = newBaseUrl + `?query=*[_type == "employee"]`;
-      const response = await fetch(url);
-      const data = await response.json();
-      setEmployeeData(data.result);
-      setIsfetched(true);
+      try {
+        const url = newBaseUrl + `?query=*[_type == "employee"]`;
+        const response = await fetch(url);
+        const data = await response.json();
+        setEmployeeData(data.result);
+      } catch (error) {
+        console.log(error);
+      } finally {
+        setIsLoading(false);
+      }
     }
     fetchBassene();
   }, []);
+  if (isLoading) {
+    return <div className="loader"></div>;
+  }
+  if (error) {
+    return <div>{error}</div>;
+  }
   return (
     <>
+      <Helmet>
+        <title>Loff | Bassene</title>
+        <meta
+          name="description"
+          content="Les om Loffs sine ansatte, aktører, profiler, sponsorer og samarbeidspartnere."
+        />
+      </Helmet>
       <Wrapper>
         <h1>Bassene</h1>
         <EmployeesContainer>
-          {isFetched
+          {!isLoading
             ? employeeData.map((employee, index) => {
-                console.log(employee, index);
                 return (
                   <EmployeeCard
                     key={index}
@@ -57,5 +71,3 @@ function Bassene() {
 }
 
 export default Bassene;
-
-// alt={} name={} role={} paragraph={} email={}

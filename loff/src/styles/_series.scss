@@ -61,3 +61,22 @@
 .series-container__text-container__link-container__link:hover {
     scale: 1.1;
 }
+
+@media (max-width: 780px) {
+    .series-container {
+        flex-direction: column;
+    }
+    .series-container__image-container {
+        width: 100%;
+    }
+    .series-container__text-container {
+        width: 100%;
+    }
+    .series-container__text-container__link-container {
+        margin: 1rem 0rem;
+        flex-direction: column;
+    }
+    .series-container__text-container__link-container__link {
+        margin-bottom: 0.75rem;
+    }
+}

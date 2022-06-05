@@ -20,6 +20,9 @@ nav ul {
 .nav__link-container,
 .nav__icon-container {
     width: 355px;
+    @media (max-width: 440px) {
+        width: 100%;
+    }
 }
 .nav__icon-container {
     justify-content: flex-end;

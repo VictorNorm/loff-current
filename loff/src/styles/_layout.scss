@@ -28,7 +28,7 @@ h1 {
     align-content: center;
     min-height: 650px;
 }
-.contentBlock-reverse-wrapper {
+.contentBlock-merch-wrapper {
     width: 100%;
     padding: 0.5rem 0rem;
     display: flex;
@@ -91,5 +91,16 @@ h1 {
         object-fit: cover;
         height: 220px;
         width: 100%;
+    }
+}
+
+@media (max-width: 530px) {
+    .some-wrapper__icon-container {
+        width: 100%;
+        justify-content: space-between;
+        padding: 0rem 0.5rem;
+    }
+    .some-wrapper__icon-container a {
+        margin: 0;
     }
 }

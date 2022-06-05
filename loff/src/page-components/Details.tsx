@@ -1,6 +1,8 @@
 import { newBaseUrl, newBaseImageUrl } from "../components/api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import Wrapper from "../components/layout/Wrapper";
 import convertImageUrl from "../functions/convertImageUrl";
 import youtubeLogo from "../logo-svg/YouTube_Logo_2017.svg.png";
@@ -8,6 +10,7 @@ import instagramLogo from "../logo-svg/instagram-ar21.svg";
 import tiktokLogo from "../logo-svg/TikTok_logo.svg";
 import Footer from "../components/Footer";
 import Graph from "../components/Graph";
+import { Helmet } from "react-helmet";
 
 function Details() {
   const [show, setShow] = useState<any[]>([]);
@@ -41,10 +44,17 @@ function Details() {
     return null;
   }
   if (isLoading) {
-    return <div>Loading</div>;
+    return <div className="loader"></div>;
   }
   return (
     <>
+      <Helmet>
+        <title>Loff | Serie</title>
+        <meta
+          name="description"
+          content="Les om detaljer, demografi og seertall av alle Loffs serier og podcast, du kan også se serien på youtube."
+        />
+      </Helmet>
       <Wrapper>
         <div className="show-container">
           <h1>{currentShow.name}</h1>
@@ -58,8 +68,12 @@ function Details() {
           </div>
           <section className="show-container__text-container">
             <p>{currentShow.excerpt}</p>
+            <a href={`${currentShow.youtube_url}`}>
+              Se serien på youtube
+              <FontAwesomeIcon icon={faYoutube} className="youtube" />
+            </a>
           </section>
-          <h2>Demografi</h2>
+          <h2 id="demography">Demografi</h2>
           <Graph
             age1={currentShow.age_1317}
             age2={currentShow.age_1824}

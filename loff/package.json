@@ -19,8 +19,11 @@
     "groq-js": "^0.3.0-beta.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
     "typescript": "^4.6.2",
     "web-vitals": "^2.1.4"
   },
@@ -49,6 +52,8 @@
     ]
   },
   "devDependencies": {
+    "@types/react-helmet": "^6.1.5",
+    "@types/react-slick": "^0.23.8",
     "react-image-webp": "^0.8.0"
   }
 }

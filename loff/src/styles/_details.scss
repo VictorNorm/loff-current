@@ -15,12 +15,38 @@
         object-fit: cover;
     }
 }
+
 .show-container__text-container {
     p {
         margin-top: 1rem;
         font-family: map-get($fonts, body);
         font-size: map-get($font-size, body);
         line-height: 1.75rem;
+    }
+    a {
+        max-width: 300px;
+        margin: 1.5rem auto;
+        border: 2px solid #001361;
+        border-radius: 3px;
+        padding: 0.5rem 0.75rem;
+        text-decoration: none;
+        transition: all 0.2s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: map-get($shadows, dark );
+    }
+    a:hover {
+        scale: 1.1;
+        cursor: pointer;
+        -webkit-transform: scale(1.1);
+    }
+    svg {
+        font-size: 20px;
+        margin-left: 0.5rem;
+        path {
+            color: red;
+        }
     }
 }
 .show-container__demography-container {
@@ -64,4 +90,34 @@
         width: 135px;
         height: 40px;
     }
+}
+
+@media (max-width: 900px) {
+    .demography-container__youtube-container,
+    .demography-container__instagram-container,
+    .demography-container__tiktok-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 700px) {
+    .show-container__image-container {
+        height: 200px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    #demography,
+    .graph-container {
+        display: none !important;
+    }
+    .show-container__text-container a {
+        margin: 2.5rem auto;
+    }
+    .demography-container__youtube-container p{
+        margin: 0.5rem auto;
+    }
+   
 }

@@ -1,16 +1,12 @@
 import Wrapper from "../components/layout/Wrapper";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
-import {
-  baseImageUrl,
-  baseUrl,
-  newBaseUrl,
-  newBaseImageUrl,
-} from "../components/api";
+import { newBaseUrl, newBaseImageUrl } from "../components/api";
 import { useState, useEffect } from "react";
 import convertImageUrl from "../functions/convertImageUrl";
-import Show from "../components/Show";
+// import Show from "../components/Show";
 import SeriesContainer from "../components/SeriesContainer";
+import { Helmet } from "react-helmet";
+import { stringSlicer } from "../functions/stringSlicer";
 
 function Serier() {
   const [shows, setShows] = useState([]);
@@ -41,15 +37,25 @@ function Serier() {
   if (shows.length === 0) {
     return null;
   }
+  if (isLoading) {
+    return <div className="loader"></div>;
+  }
   return (
     <>
+      <Helmet>
+        <title>Loff | Serier</title>
+        <meta
+          name="description"
+          content="Se alle Loffs serier og sjekk ut Loffs sin podcast, grov underholdning for mennesker i alle aldrer."
+        />
+      </Helmet>
       <h1>Serier</h1>
       <Wrapper>
         {shows.map((show: any, index: number) => (
           <SeriesContainer
             title={show.name}
             image={newBaseImageUrl + convertImageUrl(show.image.asset._ref)}
-            text={show.excerpt}
+            text={stringSlicer(show.excerpt, 200)}
             link={show._id}
             youtube={show.youtube_url}
             key={index}
