@@ -615,10 +615,10 @@ h1 {
 }
 
 .series-container__text-container__link-container__link:hover {
-  scale: 1.1;
+  scale: 1.05;
   cursor: pointer;
-  transform: scale(1.1);
-  -webkit-transform: scale(1.1);
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05);
 }
 
 @media (max-width: 780px) {
