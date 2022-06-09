@@ -84,7 +84,7 @@ function Details() {
             <p>{currentShow.excerpt}</p>
             {currentShow.tiktok_views && (
               <p className="show-container__text-container--some">
-                " Over {numberFormatter(currentShow.tiktok_views)} visninger på
+                Over {numberFormatter(currentShow.tiktok_views)} visninger på
                 TikTok <FontAwesomeIcon icon={faTiktok} className="tiktok" />
               </p>
             )}
@@ -93,7 +93,7 @@ function Details() {
               <p className="show-container__text-container--some">
                 <FontAwesomeIcon icon={faInstagram} className="instagram" />
                 Over {numberFormatter(currentShow.instagram_views)} visninger på
-                Instagram "
+                Instagram
               </p>
             )}
           </section>
@@ -110,14 +110,15 @@ function Details() {
             <section className="demography-container__youtube-container">
               <img src={youtubeLogo} />
               <p>
-                <strong>Episoder:</strong> {currentShow.youtube_episodes}
+                Episoder: <strong>{currentShow.youtube_episodes}</strong>
               </p>
               <p>
-                <strong> Episodevarighet:</strong>{" "}
-                {currentShow.youtube_episode_duration} minutter
+                Episodevarighet:{" "}
+                <strong>{currentShow.youtube_episode_duration} minutter</strong>
               </p>
               <p>
-                <strong>Views:</strong> {currentShow.youtube_views}
+                Views:{" "}
+                <strong>{numberFormatter(currentShow.youtube_views)}</strong>
               </p>
             </section>
           </section>
