@@ -23,14 +23,14 @@ function SeriesContainer(props: {
             to={`/details${props.link}`}
             className="series-container__text-container__link-container__link"
           >
-            Les mer
+            <p id="linkwrapper">Les mer</p>
             <FontAwesomeIcon icon={faArrowRight} className="arrowRight" />
           </Link>
           <a
             href={props.youtube}
             className="series-container__text-container__link-container__link"
           >
-            Se serien på youtube{" "}
+            <p id="linkwrapper">Se serien på youtube</p>
             <FontAwesomeIcon icon={faYoutube} className="youtube" />
           </a>
         </div>

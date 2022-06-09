@@ -2,46 +2,49 @@ import { useState, useEffect } from "react";
 import { newBaseUrl, newBaseImageUrl } from "./api";
 import convertImageUrl from "../functions/convertImageUrl";
 import ContentBlock from "./layout/ContentBlock";
+import Wrapper from "./layout/Wrapper";
 
 function About() {
-  const [aboutImageUrl, setAboutImageUrl] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  const [about, setAbout] = useState<any>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<null | string>(null);
   useEffect(() => {
     async function fetchAbout() {
       try {
+        setIsLoading(true);
         const query = `?query=*[_type == "about"]`;
         const url = newBaseUrl + query;
         const aboutRespone = await fetch(url);
         const aboutData = await aboutRespone.json();
-        const imageUrl =
-          newBaseImageUrl +
-          convertImageUrl(aboutData.result[0].image.asset._ref);
-        setAboutImageUrl(imageUrl);
+        setAbout(aboutData);
       } catch (error) {
-        console.log(error);
+        setError("An error occured, try reloading the page.");
       } finally {
         setIsLoading(false);
       }
     }
     fetchAbout();
   }, []);
+  if (about.length === 0) {
+    return null;
+  }
   if (isLoading) {
     return <div className="loader"></div>;
+  }
+  if (error) {
+    <Wrapper>{error}</Wrapper>;
   }
   return (
     <>
       {!isLoading && (
         <ContentBlock
           heading={"Loff"}
-          paragraph1={`Loff er kanalen hvor vi eksperimenterer med forskjellige formater
-                  og lager underholdende innhold for basser.
-                  Bak kanalen Loff står bassene i Lucky View.`}
+          paragraph1={about.result[0].homepage_info}
           heading2="Lucky view"
-          paragraph2={`Lucky View ble opprettet av en vennegjeng i 2011,
-                  og siden den gang har vi produsert en rekke enkeltstående filmer og serier
-                  som har oppnådd stor viral spredning og vunnet priser for sin innovative stil.
-                  For å forklare det kort og enkelt: Lucky View er bakeren.`}
-          src={aboutImageUrl}
+          paragraph2={about.result[0].homepage_info2}
+          src={
+            newBaseImageUrl + convertImageUrl(about.result[0].image.asset._ref)
+          }
           alt={"Loff image"}
           link="/omloff"
           buttonText="Om loff"
@@ -52,3 +55,5 @@ function About() {
 }
 
 export default About;
+
+// newBaseImageUrl + convertImageUrl(about.result[0].image.asset._ref

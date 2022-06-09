@@ -2,7 +2,13 @@ import { newBaseUrl, newBaseImageUrl } from "../components/api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faYoutube } from "@fortawesome/free-brands-svg-icons";
+import {
+  faTiktok,
+  faYoutube,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+import { Helmet } from "react-helmet";
+import numberFormatter from "../functions/numberFormatter";
 import Wrapper from "../components/layout/Wrapper";
 import convertImageUrl from "../functions/convertImageUrl";
 import youtubeLogo from "../logo-svg/YouTube_Logo_2017.svg.png";
@@ -10,18 +16,16 @@ import instagramLogo from "../logo-svg/instagram-ar21.svg";
 import tiktokLogo from "../logo-svg/TikTok_logo.svg";
 import Footer from "../components/Footer";
 import Graph from "../components/Graph";
-import { Helmet } from "react-helmet";
 
 function Details() {
   const [show, setShow] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState<null | string>(null);
   const { id } = useParams();
   useEffect(() => {
     async function fetchShows() {
       try {
         setIsLoading(true);
-        setIsError(false);
         const query = `?query=*[_type == "shows"][_id == "${id}"]`;
         const url = newBaseUrl + query;
         const response = await fetch(url);
@@ -29,10 +33,7 @@ function Details() {
         console.log(data.result);
         setShow(data.result);
       } catch (error) {
-        setIsError(true);
-        if (error) {
-          return <div>Error</div>;
-        }
+        setError("An error occured, try reloading the page.");
       } finally {
         setIsLoading(false);
       }
@@ -44,7 +45,14 @@ function Details() {
     return null;
   }
   if (isLoading) {
-    return <div className="loader"></div>;
+    return (
+      <Wrapper>
+        <div className="loader"></div>
+      </Wrapper>
+    );
+  }
+  if (error) {
+    <Wrapper>{error}</Wrapper>;
   }
   return (
     <>
@@ -59,6 +67,12 @@ function Details() {
         <div className="show-container">
           <h1>{currentShow.name}</h1>
           <div className="show-container__image-container">
+            <a
+              href={`${currentShow.youtube_url}`}
+              className="show-container__image-container__link"
+            >
+              <FontAwesomeIcon icon={faYoutube} className="youtube" />
+            </a>
             <img
               src={
                 newBaseImageUrl + convertImageUrl(currentShow.image.asset._ref)
@@ -68,10 +82,20 @@ function Details() {
           </div>
           <section className="show-container__text-container">
             <p>{currentShow.excerpt}</p>
-            <a href={`${currentShow.youtube_url}`}>
-              Se serien på youtube
-              <FontAwesomeIcon icon={faYoutube} className="youtube" />
-            </a>
+            {currentShow.tiktok_views && (
+              <p className="show-container__text-container--some">
+                " Over {numberFormatter(currentShow.tiktok_views)} visninger på
+                TikTok <FontAwesomeIcon icon={faTiktok} className="tiktok" />
+              </p>
+            )}
+            <p>{currentShow.long_description}</p>
+            {currentShow.instagram_views && (
+              <p className="show-container__text-container--some">
+                <FontAwesomeIcon icon={faInstagram} className="instagram" />
+                Over {numberFormatter(currentShow.instagram_views)} visninger på
+                Instagram "
+              </p>
+            )}
           </section>
           <h2 id="demography">Demografi</h2>
           <Graph
@@ -85,17 +109,16 @@ function Details() {
           <section className="show-container__demography-container">
             <section className="demography-container__youtube-container">
               <img src={youtubeLogo} />
-              <p>Episoder: {currentShow.youtube_episodes}</p>
               <p>
-                Episodevarighet: {currentShow.youtube_episode_duration} minutter
+                <strong>Episoder:</strong> {currentShow.youtube_episodes}
               </p>
-              <p>Views: {currentShow.youtube_views}</p>
-            </section>
-            <section className="demography-container__instagram-container">
-              <img src={instagramLogo} />
-            </section>
-            <section className="demography-container__tiktok-container">
-              <img src={tiktokLogo} />
+              <p>
+                <strong> Episodevarighet:</strong>{" "}
+                {currentShow.youtube_episode_duration} minutter
+              </p>
+              <p>
+                <strong>Views:</strong> {currentShow.youtube_views}
+              </p>
             </section>
           </section>
         </div>
@@ -106,3 +129,18 @@ function Details() {
 }
 
 export default Details;
+
+{
+  /* <section className="demography-container__instagram-container">
+  <img src={instagramLogo} />
+  <p>Followers: {currentShow.instagram_followers}</p>
+  <p>Posts: {currentShow.instagram_posts}</p>
+</section> */
+}
+{
+  /* <section className="demography-container__tiktok-container">
+  <img src={tiktokLogo} />
+  <p>Followers: {currentShow.tiktok_followers}</p>
+  <p>Likes: {currentShow.tiktok_likes}m</p>
+</section> */
+}

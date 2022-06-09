@@ -1,5 +1,6 @@
 import { newBaseImageUrl, newBaseUrl } from "../components/api";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import Carousel from "../components/Carousel";
 import Wrapper from "../components/layout/Wrapper";
 import convertImageUrl from "../functions/convertImageUrl";
@@ -7,11 +8,11 @@ import About from "../components/About";
 import Some from "../components/Some";
 import Footer from "../components/Footer";
 import Merch from "../components/Merch";
-import { Helmet } from "react-helmet";
 
 function Home() {
   const [images, setImages] = useState([]);
   const [isLoading, setIsloading] = useState(false);
+  const [error, setError] = useState<null | string>(null);
   useEffect(() => {
     async function fetchImages() {
       try {
@@ -30,7 +31,7 @@ function Home() {
         });
         setImages(imageData);
       } catch (error) {
-        console.log(error);
+        setError("An error occured, try reloading the page.");
       } finally {
         setIsloading(false);
       }
@@ -44,6 +45,10 @@ function Home() {
         <div className="loader"></div>
       </Wrapper>
     );
+  }
+
+  if (error) {
+    return <Wrapper>{error}</Wrapper>;
   }
 
   return (

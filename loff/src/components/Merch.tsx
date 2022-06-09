@@ -6,6 +6,7 @@ import Wrapper from "./layout/Wrapper";
 function Merch() {
   const [merch, setMerch] = useState<any>([]);
   const [isLoading, setIsloading] = useState(true);
+  const [error, setError] = useState<null | string>(null);
   useEffect(() => {
     async function fetchMerchData() {
       try {
@@ -13,10 +14,9 @@ function Merch() {
         const url = newBaseUrl + query;
         const response = await fetch(url);
         const data = await response.json();
-        // console.log(data);
         setMerch(data.result);
       } catch (error) {
-        console.log(error);
+        setError("An error occured, try reloading the page.");
       } finally {
         setIsloading(false);
       }
@@ -25,6 +25,9 @@ function Merch() {
   }, []);
   if (isLoading) {
     return <div className="loader"></div>;
+  }
+  if (error) {
+    <Wrapper>{error}</Wrapper>;
   }
   return (
     <div className="contentBlock-merch-wrapper">
@@ -40,12 +43,9 @@ function Merch() {
             </a>
           </div>
           <div className="contentBlock-merch__image-container">
-            {merch[0].images.map((image: any, index: number) => (
-              <img
-                src={newBaseImageUrl + convertImageUrl(image.asset._ref)}
-                key={index}
-              />
-            ))}
+            <img
+              src={newBaseImageUrl + convertImageUrl(merch[0].image.asset._ref)}
+            />
           </div>
         </div>
       </Wrapper>

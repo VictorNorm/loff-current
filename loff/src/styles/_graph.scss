@@ -36,8 +36,14 @@
     }
 }
 .graph-container__item__column {
-    background-color: #33ec33;
-    width: 100%;
+    background-color: map-get($colors, cta-1);
+    width: 50%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+
+.graph-container li,
+.graph-container__item p
+ {
+    color: black;
 }

@@ -1,33 +1,27 @@
-import Wrapper from "../components/layout/Wrapper";
-import Footer from "../components/Footer";
 import { newBaseUrl, newBaseImageUrl } from "../components/api";
 import { useState, useEffect } from "react";
-import convertImageUrl from "../functions/convertImageUrl";
-// import Show from "../components/Show";
-import SeriesContainer from "../components/SeriesContainer";
 import { Helmet } from "react-helmet";
 import { stringSlicer } from "../functions/stringSlicer";
+import Wrapper from "../components/layout/Wrapper";
+import Footer from "../components/Footer";
+import convertImageUrl from "../functions/convertImageUrl";
+import SeriesContainer from "../components/SeriesContainer";
 
 function Serier() {
   const [shows, setShows] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState<null | string>(null);
   useEffect(() => {
     async function fetchShows() {
       try {
         setIsLoading(true);
-        setIsError(false);
         const query = `?query=*[_type == "shows"]`;
         const url = newBaseUrl + query;
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data.result);
         setShows(data.result);
       } catch (error) {
-        setIsError(true);
-        if (error) {
-          return <div>Error</div>;
-        }
+        setError("An error occured, try reloading the page.");
       } finally {
         setIsLoading(false);
       }
@@ -38,7 +32,14 @@ function Serier() {
     return null;
   }
   if (isLoading) {
-    return <div className="loader"></div>;
+    return (
+      <Wrapper>
+        <div className="loader"></div>
+      </Wrapper>
+    );
+  }
+  if (error) {
+    return <Wrapper>{error}</Wrapper>;
   }
   return (
     <>

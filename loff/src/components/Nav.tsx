@@ -1,14 +1,4 @@
-import React from "react";
-import Wrapper from "./layout/Wrapper";
-import logo1 from "../logo-svg/logo-1.svg";
-import logo2 from "../logo-svg/logo-2.svg";
-import logo3 from "../logo-svg/logo-3.svg";
-import logo4 from "../logo-svg/logo-4.svg";
-import logo5 from "../logo-svg/logo-5.svg";
-import logo6 from "../logo-svg/logo-6.svg";
-import logo7 from "../logo-svg/logo-7.svg";
-import logo8 from "../logo-svg/logo-8.svg";
-import { randomNumber } from "../utils/common";
+import { randomNumber } from "../functions/randomNumber";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPodcast } from "@fortawesome/free-solid-svg-icons";
@@ -18,6 +8,15 @@ import {
   faInstagram,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
+import Wrapper from "./layout/Wrapper";
+import logo1 from "../logo-svg/logo-1.svg";
+import logo2 from "../logo-svg/logo-2.svg";
+import logo3 from "../logo-svg/logo-3.svg";
+import logo4 from "../logo-svg/logo-4.svg";
+import logo5 from "../logo-svg/logo-5.svg";
+import logo6 from "../logo-svg/logo-6.svg";
+import logo7 from "../logo-svg/logo-7.svg";
+import logo8 from "../logo-svg/logo-8.svg";
 
 const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8];
 

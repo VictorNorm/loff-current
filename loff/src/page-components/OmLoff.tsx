@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 function OmLoff() {
   const [about, setAbout] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<null | string>(null);
   useEffect(() => {
     async function fetchAbout() {
       try {
@@ -23,9 +23,8 @@ function OmLoff() {
         });
         content.push(data.result[0].image.asset._ref);
         setAbout(content);
-        // console.log(data.result);
       } catch (error) {
-        console.log(error);
+        setError("An error occured, try reloading the page.");
       } finally {
         setIsLoading(false);
       }
@@ -35,7 +34,16 @@ function OmLoff() {
   if (about.length === 0) {
     return null;
   }
-  // console.log(about);
+  if (isLoading) {
+    return (
+      <Wrapper>
+        <div className="loader"></div>
+      </Wrapper>
+    );
+  }
+  if (error) {
+    return <Wrapper>{error}</Wrapper>;
+  }
   return (
     <>
       <Helmet>
@@ -56,7 +64,7 @@ function OmLoff() {
           />
           <p>{about[2]}</p>
           <p>{about[3]}</p>
-          <p>{about[4]}</p>
+          <p className="om-loff--bold-center">{about[4]}</p>
           <p>{about[5]}</p>
           <p>{about[6]}</p>
           <p>{about[7]}</p>

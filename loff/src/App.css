@@ -133,10 +133,10 @@ p {
 }
 .contentBlock .contentBlock__image-container {
   position: absolute;
-  top: 10%;
+  top: 15%;
   left: 50%;
   width: 50%;
-  height: 80%;
+  height: 70%;
 }
 .contentBlock .contentBlock__image-container img {
   box-shadow: 0px 0px 5px rgb(107, 107, 107);
@@ -186,9 +186,6 @@ p {
   height: 80%;
   border: 5px solid #001361;
   border-radius: 5px;
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 1fr;
 }
 .contentBlock-merch .contentBlock-merch__image-container img {
   width: 100%;
@@ -237,25 +234,12 @@ p {
 
 .bassene-container {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
   grid-template-columns: 1fr 1fr;
   gap: 22px;
 }
-@media screen and (max-width: 970px) {
-  .bassene-container {
-    grid-auto-rows: auto;
-    grid-template-columns: 1fr;
-  }
-}
-@media screen and (max-width: 750px) {
-  .bassene-container {
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-columns: 1fr;
-  }
-}
 
 .employeeCard {
-  height: 775px;
   width: 100%;
   border-bottom: 1px solid #ccc;
   margin: 2rem 0rem;
@@ -270,11 +254,6 @@ p {
   display: flex;
   flex-direction: column;
 }
-@media screen and (max-width: 970px) {
-  .employeeCard__text-container {
-    margin-bottom: 1rem;
-  }
-}
 .employeeCard__text-container h4 {
   margin: 0.5rem 0rem;
 }
@@ -286,15 +265,18 @@ p {
 .employeeCard__text-container p {
   font-family: "Catamaran";
   font-weight: 500;
+  margin-bottom: 1rem;
 }
 
 .employeeCard__image-container {
   height: 60%;
+  height: 400px;
 }
 .employeeCard__image-container img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  object-position: 0px -80px;
 }
 
 .employeeCard__social-container {
@@ -303,6 +285,35 @@ p {
   margin-top: auto;
 }
 
+@media (max-width: 970px) {
+  .bassene-container {
+    grid-auto-rows: auto !important;
+    grid-template-columns: 1fr;
+  }
+
+  .employeeCard {
+    height: fit-content;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+
+  .employeeCard__text-container {
+    margin-bottom: 1rem;
+  }
+
+  .employeeCard__social-container {
+    flex-direction: column;
+  }
+  .employeeCard__social-container p {
+    margin: 0.5rem auto;
+  }
+}
+@media screen and (max-width: 750px) {
+  .bassene-container {
+    grid-template-rows: auto;
+    grid-template-columns: 1fr;
+  }
+}
 nav {
   display: flex;
   width: 100%;
@@ -586,13 +597,17 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.series-container__text-container__link-container__link {
   box-shadow: 0px 0px 5px rgb(144, 144, 144);
+  transition: all 0.2s;
+  -webkit-transition: all 0.2s;
 }
 .series-container__text-container__link-container__link svg {
   margin-left: 0.5rem;
+}
+
+#linkwrapper {
+  margin: 0;
+  display: inline;
 }
 
 .series-container__text-container__link-container__link:last-child svg {
@@ -601,6 +616,9 @@ h1 {
 
 .series-container__text-container__link-container__link:hover {
   scale: 1.1;
+  cursor: pointer;
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
 }
 
 @media (max-width: 780px) {
@@ -610,6 +628,9 @@ h1 {
 
   .series-container__image-container {
     width: 100%;
+  }
+  .series-container__image-container img {
+    height: auto;
   }
 
   .series-container__text-container {
@@ -630,12 +651,17 @@ h1 {
   margin: 0 auto;
   min-height: 100vh;
 }
+.show-container h1 {
+  color: black;
+}
 .show-container h2 {
-  margin: 2rem 0rem;
+  margin: 6rem 0rem 3rem 0rem;
   text-align: center;
+  color: black;
 }
 
 .show-container__image-container {
+  position: relative;
   width: 100%;
 }
 .show-container__image-container img {
@@ -644,11 +670,32 @@ h1 {
   object-fit: cover;
 }
 
+.show-container__image-container__link {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.537);
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.show-container__image-container__link svg {
+  height: 30px;
+}
+
+.show-container__image-container__link:hover {
+  background-color: white;
+}
+
 .show-container__text-container p {
   margin-top: 1rem;
   font-family: "Catamaran";
   font-size: 18px;
   line-height: 1.75rem;
+  color: black;
 }
 .show-container__text-container a {
   max-width: 300px;
@@ -669,11 +716,32 @@ h1 {
   -webkit-transform: scale(1.1);
 }
 .show-container__text-container svg {
-  font-size: 20px;
+  font-size: 25px;
+}
+.show-container__text-container .fa-instagram {
+  margin-right: 0.5rem;
+}
+.show-container__text-container .fa-tiktok {
   margin-left: 0.5rem;
 }
-.show-container__text-container svg path {
+
+.fa-youtube path {
   color: red;
+}
+
+.show-container__text-container--some {
+  font-size: 30px !important;
+  font-weight: 600;
+  text-align: center;
+  margin: 2.5rem 0rem !important;
+  color: black;
+  font-style: italic;
+}
+.show-container__text-container--some .fa-tiktok path {
+  color: black;
+}
+.show-container__text-container--some .fa-instagram path {
+  color: black;
 }
 
 .show-container__demography-container {
@@ -690,43 +758,27 @@ h1 {
   display: flex;
   background: #E4EAF0;
   padding: 1rem;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }
 .demography-container__youtube-container img {
   width: 135px;
   height: 40px;
 }
-
-.demography-container__instagram-container {
-  display: flex;
-  padding: 1rem;
-  justify-content: space-between;
-  align-items: center;
-}
-.demography-container__instagram-container img {
-  width: 135px;
-  height: 40px;
-  object-fit: cover;
+.demography-container__youtube-container p, .demography-container__youtube-container strong {
+  color: black;
 }
 
-.demography-container__tiktok-container {
-  display: flex;
-  background: #E4EAF0;
-  padding: 1rem;
-  justify-content: space-between;
-  align-items: center;
-}
-.demography-container__tiktok-container img {
-  width: 135px;
-  height: 40px;
+.demography-container__youtube-container p {
+  margin: 0rem 1rem 0rem 1rem;
 }
 
 @media (max-width: 900px) {
-  .demography-container__youtube-container,
-.demography-container__instagram-container,
-.demography-container__tiktok-container {
+  .demography-container__youtube-container {
     flex-direction: column;
+  }
+  .demography-container__youtube-container p {
+    margin-top: 0.75rem;
   }
 }
 @media (max-width: 700px) {
@@ -792,9 +844,14 @@ h1 {
 
 .graph-container__item__column {
   background-color: #33ec33;
-  width: 100%;
+  width: 50%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+.graph-container li,
+.graph-container__item p {
+  color: black;
 }
 
 .loader,
@@ -854,6 +911,12 @@ h1 {
 .om-loff img {
   width: 100%;
   margin-bottom: 1.5rem;
+}
+
+.om-loff--bold-center {
+  font-weight: bold;
+  text-align: center;
+  margin: 3rem 0rem !important;
 }
 
 /*# sourceMappingURL=App.css.map */

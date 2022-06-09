@@ -1,25 +1,26 @@
 import { useState, useEffect } from "react";
 import { newBaseUrl, newBaseImageUrl } from "../components/api";
+import { Helmet } from "react-helmet";
 import Wrapper from "../components/layout/Wrapper";
 import EmployeesContainer from "../components/layout/EmployeesContainer";
 import EmployeeCard from "../components/EmployeeCard";
 import convertImageUrl from "../functions/convertImageUrl";
 import Footer from "../components/Footer";
-import { Helmet } from "react-helmet";
 
 function Bassene() {
   const [employeeData, setEmployeeData] = useState<any[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<null | string>(null);
   useEffect(() => {
     async function fetchBassene() {
       try {
+        setIsLoading(true);
         const url = newBaseUrl + `?query=*[_type == "employee"]`;
         const response = await fetch(url);
         const data = await response.json();
         setEmployeeData(data.result);
       } catch (error) {
-        console.log(error);
+        setError("An error occured, try reloading the page.");
       } finally {
         setIsLoading(false);
       }
@@ -30,7 +31,7 @@ function Bassene() {
     return <div className="loader"></div>;
   }
   if (error) {
-    return <div>{error}</div>;
+    <Wrapper>{error}</Wrapper>;
   }
   return (
     <>

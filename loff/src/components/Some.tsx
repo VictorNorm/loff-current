@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import { newBaseUrl, newBaseImageUrl } from "./api";
-import Wrapper from "./layout/Wrapper";
-import convertImageUrl from "../functions/convertImageUrl";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPodcast } from "@fortawesome/free-solid-svg-icons";
 import {
@@ -10,13 +8,17 @@ import {
   faInstagram,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
+import Wrapper from "./layout/Wrapper";
+import convertImageUrl from "../functions/convertImageUrl";
 
 function Some() {
   const [someImages, setSomeImages] = useState<any>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<null | string>(null);
   useEffect(() => {
     async function fetchSomeImages() {
       try {
+        setIsLoading(true);
         const query = `?query=*[_type == "someimages"]`;
         const url = newBaseUrl + query;
         const response = await fetch(url);
@@ -31,7 +33,7 @@ function Some() {
         });
         setSomeImages(imageData);
       } catch (error) {
-        console.log(error);
+        setError("An error occured, try reloading the page.");
       } finally {
         setIsLoading(false);
       }
@@ -40,6 +42,9 @@ function Some() {
   }, []);
   if (isLoading) {
     return <div className="loader"></div>;
+  }
+  if (error) {
+    return <Wrapper>{error}</Wrapper>;
   }
   return (
     <div className="some-wrapper">

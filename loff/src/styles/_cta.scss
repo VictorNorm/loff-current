@@ -1,4 +1,3 @@
-
 .cta-1 {
     background-color: map-get($colors, cta-1);
     font-family: map-get($fonts, heading);
@@ -14,7 +13,6 @@
     font-weight: 600;
     cursor: pointer;
     display: block;
-    // box-shadow: 0 0 0 2px rgb(0, 0, 0) inset;
 }
 
 .cta-1:hover {
