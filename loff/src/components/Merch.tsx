@@ -8,23 +8,33 @@ function Merch() {
   const [isLoading, setIsloading] = useState(true);
   const [error, setError] = useState<null | string>(null);
   useEffect(() => {
+    const abortController = new AbortController();
     async function fetchMerchData() {
       try {
         const query = `?query=*[_type == "merchdata"]`;
         const url = newBaseUrl + query;
-        const response = await fetch(url);
+        const response = await fetch(url, { signal: abortController.signal });
         const data = await response.json();
         setMerch(data.result);
-      } catch (error) {
-        setError("An error occured, try reloading the page.");
+      } catch (err: any) {
+        if (err.name === "AbortError") {
+          console.log("fetch aborted");
+        } else {
+          setError("An error occured, try reloading the page.");
+        }
       } finally {
         setIsloading(false);
       }
     }
     fetchMerchData();
+    return () => abortController.abort();
   }, []);
   if (isLoading) {
-    return <div className="loader"></div>;
+    return (
+      <Wrapper>
+        <div className="loader"></div>
+      </Wrapper>
+    );
   }
   if (error) {
     <Wrapper>{error}</Wrapper>;
