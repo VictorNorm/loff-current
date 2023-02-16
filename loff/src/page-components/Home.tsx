@@ -62,8 +62,8 @@ function Home() {
       </Helmet>
       <Wrapper>{!isLoading ? <Carousel images={images} /> : null}</Wrapper>
       <div className="home">
-        {/* <About /> */}
-        {/* <Some /> */}
+        <About />
+        <Some />
         <Merch />
       </div>
       <Footer />

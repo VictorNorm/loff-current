@@ -27,41 +27,42 @@ function Graph(props: {
   return (
     <div className="graph-container">
       <div className="graph-container__indicator">
-        <ul>
+        {/* <ul>
           <li>50%</li>
           <li>25%</li>
           <li>0%</li>
-        </ul>
+        </ul> */}
+        <p id="alder">Alder:</p>
       </div>
       <div className="graph-container__13-17 graph-container__item">
         <p>{props.age1}%</p>
         <div className="graph-container__item__column"></div>
-        <p>13-17 år</p>
+        <p>13-17</p>
       </div>
       <div className="graph-container__18-24 graph-container__item">
         <p>{props.age2}%</p>
         <div className="graph-container__item__column"></div>
-        <p>18-24 år</p>
+        <p>18-24</p>
       </div>
       <div className="graph-container__25-34 graph-container__item">
         <p>{props.age3}%</p>
         <div className="graph-container__item__column"></div>
-        <p>25-34 år</p>
+        <p>25-34</p>
       </div>
       <div className="graph-container__35-44 graph-container__item">
         <p>{props.age4}%</p>
         <div className="graph-container__item__column"></div>
-        <p>35-44 år</p>
+        <p>35-44</p>
       </div>
       <div className="graph-container__45-54 graph-container__item">
         <p>{props.age5}%</p>
         <div className="graph-container__item__column"></div>
-        <p>45-54 år</p>
+        <p>45-54</p>
       </div>
       <div className="graph-container__55-64 graph-container__item">
         <p>{props.age6}%</p>
         <div className="graph-container__item__column"></div>
-        <p>55+ år</p>
+        <p>55+</p>
       </div>
     </div>
   );

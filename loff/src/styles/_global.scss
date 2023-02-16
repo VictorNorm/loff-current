@@ -27,6 +27,9 @@ h4 {
 h5 {
     font-size: map-get($font-size, h5);
 }
+h6 {
+    font-size: map-get($font-size, h6);
+}
 p {
     font-size: map-get($font-size, body);
 }

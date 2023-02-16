@@ -64,9 +64,9 @@
 }
 .series-container__text-container__link-container__link:hover {
     scale: 1.05;
-    cursor: pointer;
     transform: scale(1.05);
     -webkit-transform: scale(1.05);
+    cursor: pointer;
 }
 
 @media (max-width: 780px) {
@@ -88,5 +88,10 @@
     }
     .series-container__text-container__link-container__link {
         margin-bottom: 0.75rem;
+    }
+    .series-container__text-container__link-container__link:hover {
+        scale: 1;
+        transform: scale(1);
+        -webkit-transform: scale(1);
     }
 }
