@@ -32,65 +32,39 @@ margin-right: 1rem;
 text-decoration: none;
 font-family: map-get($fonts, heading);
 font-size: 18px;
+font-weight: bold;
+font-style: italic;
 }
 .nav__link-container a:hover {
     text-decoration: underline;
 }
-.nav__icon-container li, .some-link{
-    margin-left: 1rem;
+.nav__icon-container li a{
     font-size: 1.5rem;
-    transition: all 0.2s;
-    box-shadow: 0px 0px 3px rgb(138, 138, 138);
-    width: 55px;
+    // width: 55px;
+    margin-right: 1.25rem;
     height: 40px;
-    border-radius: 2px;
     display: flex;
     justify-content: center;
     align-items: center;
     transform-style: preserve-3d;
     -moz-transform-style: preserve-3d;
-    -webkit-transition: all 0.2s;
+    -webkit-transition: scale 0.15s;
+    transform-origin: left;
 }
-.nav__icon-container li:hover {
+.nav__icon-container a {
+    height: 30px;
+}
+.nav__icon-container li a img {
+    width: 30px;
+    height: 30px;
+    filter: blur(0);
+    transition: all 0.2s;
+}
+.nav__icon-container li a img:hover {
     scale: 1.1;
     cursor: pointer;
-    -webkit-transform: scale(1.1);
-}
-
-#youtube {
-    svg {
-        path {
-            color: 	#FF0000 !important; 
-        }
-    }
-}
-#facebook {
-    svg {
-        path {
-            color: 	#4267B2 !important; 
-        }
-    }
-}
-#instagram {
-    svg {
-        path {
-            color: 	#8a3ab9 !important; 
-        }
-    }
-}
-#tiktok {
-    svg {
-        path {
-            color: 	black !important; 
-        }
-    }
-}
-#youtube {
-    svg {
-        path {
-            color: 	#FF0000 !important; 
-        }
-    }
+    -webkit-transform: scale(1.05);
+    filter: blur(0);
 }
 
 @media (max-width: 960px) {
@@ -99,8 +73,11 @@ font-size: 18px;
     }
     .nav__link-container,
     .nav__icon-container {
-        li, a {
+        li {
             margin: 0;
+        }
+        a {
+            margin: 0 !important;
         }
         justify-content: space-between;
     }

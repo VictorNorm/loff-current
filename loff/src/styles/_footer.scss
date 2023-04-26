@@ -7,17 +7,17 @@ footer {
     align-items: center;
     height: fit-content;
     box-shadow: 0px 0px 10px rgb(199, 199, 199);
-    background-color: map-get($colors, background );
+    background-color: map-get($colors, backgroundPurple );
     margin-top: 2rem;
     padding: 1rem 0rem;
 }
 footer ul {
     display: flex;
     list-style: none;
-    justify-content: space-between;
+    justify-content: space-evenly;
     border-radius: 3px;
-    @media (max-width: 960px) {
-        flex-direction: column;
+    img {
+        width: 30px;
     }
 }
 footer li {

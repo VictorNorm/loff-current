@@ -1,0 +1,68 @@
+.sponsor-container {
+    display: flex;
+    margin: 2rem 0rem;
+    
+    .sponsor-container__image-container {
+        margin-right: 1rem;
+        img {
+            height: 200px;
+            width: 200px;
+            object-fit: cover;
+        }
+    }
+    
+    .sponsor-container__text-container {
+        display: flex;
+        flex-direction: column;
+        background-color: map-get($colors, myYellow );
+        flex-grow: 1;
+        padding: 1rem;
+        color: #743292;
+        p {
+            margin: 0.5rem 0rem;
+        }
+        img {
+            height: 35px;
+        }
+    }
+
+    .sponsor-container__text-container__sponsor-info {
+        display: flex;
+        justify-content: space-between;
+        margin-top: auto;
+        div {
+            display: flex;
+            align-items: center;
+            h6 {
+                margin: 0rem 0rem 0rem 0.25rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 1050px) {
+    .sponsor-container {
+        flex-direction: column;
+    }
+    .sponsor-container__image-container {
+        align-self: center;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 760px) {
+    .sponsor-container__text-container__sponsor-info {
+        flex-direction: column;
+        div {
+            width: 181px;
+            margin: 0.25rem 0rem;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    #youtube-logo {
+        width: 150px;
+        margin: 2rem 0rem 2rem 0rem;
+    }
+}

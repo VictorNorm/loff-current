@@ -49,12 +49,13 @@ function Merch() {
             <h2>Shopify</h2>
             <p>{merch[0].message}</p>
             <a href={`${merch[0].shoplink}`} className="cta-1">
-              Shop
+              <p id="contentBlock-merch__text__p">shop</p>
             </a>
           </div>
           <div className="contentBlock-merch__image-container">
             <img
               src={newBaseImageUrl + convertImageUrl(merch[0].image.asset._ref)}
+              alt="Merchandise"
             />
           </div>
         </div>

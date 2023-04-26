@@ -2,20 +2,17 @@ import { newBaseUrl, newBaseImageUrl } from "../components/api";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTiktok,
-  faYoutube,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { Helmet } from "react-helmet";
 import numberFormatter from "../functions/numberFormatter";
 import Wrapper from "../components/layout/Wrapper";
 import convertImageUrl from "../functions/convertImageUrl";
 import youtubeLogo from "../logo-svg/YouTube_Logo_2017.svg.png";
-import instagramLogo from "../logo-svg/instagram-ar21.svg";
-import tiktokLogo from "../logo-svg/TikTok_logo.svg";
+import instaIcon from "../logo-some/Instagram-ikon.svg";
+import tiktokIcon from "../logo-some/Tiktok-ikon.svg";
 import Footer from "../components/Footer";
 import Graph from "../components/Graph";
+import SponsorContainer from "../components/SponsorContainer";
 
 function Details() {
   const [show, setShow] = useState<any[]>([]);
@@ -82,22 +79,53 @@ function Details() {
           </div>
           <section className="show-container__text-container">
             <p>{currentShow.excerpt}</p>
+            {currentShow.sponsorList != null && <h2>Sponsorer</h2>}
+            {currentShow.sponsorList != null &&
+              currentShow.sponsorList.map((sponsor: any, index: number) => {
+                return (
+                  <SponsorContainer
+                    key={index}
+                    desc={sponsor.description}
+                    name={sponsor.name}
+                    image={sponsor.image.asset._ref}
+                    hovedsponsor={sponsor.hovedsponsor}
+                    konkurranser={sponsor.konkurranser}
+                    krysspublisering={sponsor.krysspublisering}
+                  />
+                );
+              })}
             {currentShow.tiktok_views && (
-              <p className="show-container__text-container--some">
-                Over {numberFormatter(currentShow.tiktok_views)} visninger på
-                TikTok <FontAwesomeIcon icon={faTiktok} className="tiktok" />
-              </p>
+              <div className="show-container__text-container__tiktok-container">
+                <img
+                  src={tiktokIcon}
+                  alt="tiktok"
+                  className="show-container__text-container--icon"
+                />
+                <h6 className="show-container__text-container--tiktok">
+                  Over {numberFormatter(currentShow.tiktok_views)} visninger på
+                  TikTok
+                </h6>
+              </div>
             )}
             <p>{currentShow.long_description}</p>
             {currentShow.instagram_views && (
-              <p className="show-container__text-container--some">
-                <FontAwesomeIcon icon={faInstagram} className="instagram" />
-                Over {numberFormatter(currentShow.instagram_views)} visninger på
-                Instagram
-              </p>
+              <div className="show-container__text-container__instagram-container">
+                <img
+                  src={instaIcon}
+                  alt="instagram"
+                  className="show-container__text-container--icon"
+                />
+                <h6 className="show-container__text-container--instagram">
+                  Over {numberFormatter(currentShow.instagram_views)} visninger
+                  på Instagram
+                </h6>
+              </div>
             )}
           </section>
           <h2 id="demography">Demografi</h2>
+          <div className="youtube-image-container">
+            <img src={youtubeLogo} id="youtube-logo" />
+          </div>
           <Graph
             age1={currentShow.age_1317}
             age2={currentShow.age_1824}
@@ -108,7 +136,6 @@ function Details() {
           />
           <section className="show-container__demography-container">
             <section className="demography-container__youtube-container">
-              <img src={youtubeLogo} />
               <p>
                 Episoder: <strong>{currentShow.youtube_episodes}</strong>
               </p>
@@ -130,18 +157,3 @@ function Details() {
 }
 
 export default Details;
-
-{
-  /* <section className="demography-container__instagram-container">
-  <img src={instagramLogo} />
-  <p>Followers: {currentShow.instagram_followers}</p>
-  <p>Posts: {currentShow.instagram_posts}</p>
-</section> */
-}
-{
-  /* <section className="demography-container__tiktok-container">
-  <img src={tiktokLogo} />
-  <p>Followers: {currentShow.tiktok_followers}</p>
-  <p>Likes: {currentShow.tiktok_likes}m</p>
-</section> */
-}

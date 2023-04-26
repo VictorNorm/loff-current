@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faYoutube } from "@fortawesome/free-brands-svg-icons";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import ytIcon from "../logo-some/Youtube-ikon.svg";
 
 function SeriesContainer(props: {
   title: string;
@@ -13,7 +11,7 @@ function SeriesContainer(props: {
   return (
     <div className="series-container">
       <div className="series-container__image-container">
-        <img src={props.image}></img>
+        <img src={props.image} alt="Image of series"></img>
       </div>
       <div className="series-container__text-container">
         <h2>{props.title}</h2>
@@ -23,15 +21,18 @@ function SeriesContainer(props: {
             to={`/details${props.link}`}
             className="series-container__text-container__link-container__link"
           >
-            <p id="linkwrapper">Les mer</p>
-            <FontAwesomeIcon icon={faArrowRight} className="arrowRight" />
+            <h6 id="linkwrapper">Les mer</h6>
           </Link>
           <a
             href={props.youtube}
             className="series-container__text-container__link-container__link"
+            id="youtube-link"
           >
-            <p id="linkwrapper">Se serien på youtube</p>
-            <FontAwesomeIcon icon={faYoutube} className="youtube" />
+            <img
+              src={ytIcon}
+              alt="youtube"
+              className="series-container__youtube"
+            />
           </a>
         </div>
       </div>

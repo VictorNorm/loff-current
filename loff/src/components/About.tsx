@@ -47,7 +47,7 @@ function About() {
           }
           alt={"Loff image"}
           link="/omloff"
-          buttonText="Om loff"
+          buttonText="om Loff"
         />
       )}
     </>

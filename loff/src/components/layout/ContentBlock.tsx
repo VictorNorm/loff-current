@@ -23,7 +23,7 @@ function ContentBlock(props: {
               <h2>{props.heading2}</h2>
               <p>{props.paragraph2}</p>
               <Link to={`${props.link}`} className="cta-1">
-                {props.buttonText}
+                <p>{props.buttonText}</p>
               </Link>
             </div>
             <div className="contentBlock__image-container">

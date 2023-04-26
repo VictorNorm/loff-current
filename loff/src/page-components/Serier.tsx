@@ -51,6 +51,9 @@ function Serier() {
         />
       </Helmet>
       <h1>Serier</h1>
+      <p className="subheading">
+        Her kan du se hvordan vi jobber med merkevarer
+      </p>
       <Wrapper>
         {shows.map((show: any, index: number) => (
           <SeriesContainer

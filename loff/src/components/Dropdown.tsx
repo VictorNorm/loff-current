@@ -24,8 +24,6 @@ interface Asset {
   _ref: string;
 }
 
-// const query = `?query=*[_type == "dropdown"]`;
-
 function Dropdown() {
   const [dropdownData, setDropdownData] = useState<DropdownData | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -113,7 +111,7 @@ function Dropdown() {
           </div>
         </div>
       )}
-      <h5>Samarbeide?</h5>
+      <h5 id="dropdown--heading">Samarbeide?</h5>
       <p>
         Innhold publisert på LOFF er finansiert av spennnende, nytenkende
         aktører og merkevarer. Målet med disse samarbeidene er at det skal gi

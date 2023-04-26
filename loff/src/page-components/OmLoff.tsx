@@ -24,7 +24,6 @@ function OmLoff() {
         });
         content.push(data.result[0].image.asset._ref);
         setAbout(content);
-        // console.log(content);
       } catch (error) {
         setError("An error occured, try reloading the page.");
       } finally {
@@ -59,18 +58,11 @@ function OmLoff() {
         <h1>Om Loff</h1>
         <section className="om-loff">
           <p>{about[0]}</p>
-          {/* <p>{about[1]}</p> */}
           <img
             className="om-loff__image"
             src={newBaseImageUrl + convertImageUrl(about[7])}
           />
           <Dropdown />
-          {/* <p>{about[2]}</p> */}
-          {/* <p>{about[3]}</p> */}
-          {/* <p className="om-loff--bold-center">{about[4]}</p> */}
-          {/* <p>{about[5]}</p> */}
-          {/* <p>{about[6]}</p> */}
-          {/* <p>{about[7]}</p> */}
         </section>
       </Wrapper>
       <Footer />

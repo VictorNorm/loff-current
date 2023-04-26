@@ -1,7 +1,12 @@
 $colors: (
-    text-primary: #001361,
+    text-primary: #1E103B,
     cta-1: #33ec33,
     background: #E4EAF0,
+    backgroundPurple: #C995C8,
+    backgroundNew: #F8FCEF,
+    myPink: #F16073,
+    myGreen: #30D197,
+    myYellow: #FFF24D,
 );
 
 $shadows: (
@@ -13,7 +18,7 @@ $shadows: (
 
 $fonts: (
     heading: "Fira sans",
-    body: "Catamaran",
+    body: "Fira sans",
 );
 
 $font-size: (
@@ -25,7 +30,3 @@ $font-size: (
     h6: 19px,
     body: 18px,
 );
-
-// @function getColor($colors) {      
-//     @return map-get($colors, $color);
-//     }

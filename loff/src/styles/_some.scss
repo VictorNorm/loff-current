@@ -1,0 +1,15 @@
+.some-wrapper__icon-container {
+    .some-link {
+        margin: 0rem 1rem 0rem 1rem;
+    }
+}
+.some-link {
+    img {
+        transition: all 0.2s;
+    }
+    img:hover {
+        scale: 1.1;
+        cursor: pointer;
+        -webkit-transform: scale(1.1);
+    }
+}

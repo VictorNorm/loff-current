@@ -10,6 +10,11 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import Wrapper from "./layout/Wrapper";
 import convertImageUrl from "../functions/convertImageUrl";
+import ytIcon from "../logo-some/Youtube-ikon.svg";
+import fbookIcon from "../logo-some/Facebook-ikon.svg";
+import instaIcon from "../logo-some/Instagram-ikon.svg";
+import tiktokIcon from "../logo-some/Tiktok-ikon.svg";
+import podIcon from "../logo-some/Podcast-ikon.svg";
 
 function Some() {
   const [someImages, setSomeImages] = useState<any>([]);
@@ -61,7 +66,7 @@ function Some() {
               id="youtube"
               className="some-link"
             >
-              <FontAwesomeIcon icon={faYoutube} />
+              <img src={ytIcon} alt="youtube" />
             </a>
           </li>
           <li>
@@ -70,7 +75,7 @@ function Some() {
               id="facebook"
               className="some-link"
             >
-              <FontAwesomeIcon icon={faFacebookSquare} />
+              <img src={fbookIcon} alt="facebook" />
             </a>
           </li>
           <li>
@@ -79,7 +84,7 @@ function Some() {
               id="instagram"
               className="some-link"
             >
-              <FontAwesomeIcon icon={faInstagram} />
+              <img src={instaIcon} alt="instagram" />
             </a>
           </li>
           <li>
@@ -88,7 +93,7 @@ function Some() {
               id="tiktok"
               className="some-link"
             >
-              <FontAwesomeIcon icon={faTiktok} />
+              <img src={tiktokIcon} alt="tiktok" />
             </a>
           </li>
           <li>
@@ -96,7 +101,7 @@ function Some() {
               href="https://podcasts.apple.com/no/podcast/bassene/id1542211872"
               className="some-link"
             >
-              <FontAwesomeIcon icon={faPodcast} />
+              <img src={podIcon} alt="podcast" />
             </a>
           </li>
         </ul>

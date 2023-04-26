@@ -43,7 +43,8 @@ function Bassene() {
         />
       </Helmet>
       <Wrapper>
-        <h1>Bassene</h1>
+        <h1>Folka</h1>
+        <p className="subheading">Talentfulle basser og idioter av alle slag</p>
         <EmployeesContainer>
           {!isLoading
             ? employeeData.map((employee, index) => {

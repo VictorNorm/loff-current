@@ -5,7 +5,9 @@
 }
 h1 {
     text-align: center;
-    margin: 2rem 0rem;
+    margin: 1rem 0rem;
+    font-style: italic;
+    font-weight: 900;
     font-size: map-get($font-size, h1);
 }
 .wrapper--flex-row {
@@ -36,12 +38,11 @@ h1 {
 }
 .some-wrapper {
     padding: 2rem 0rem;
-    background-color: #E4EAF0;
+    background-color: map-get($colors, backgroundPurple );
     width: 100%;
     box-shadow: 0px 0px 5px rgb(169, 168, 168);
 }
 .some-wrapper_top-container {
-    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -50,20 +51,19 @@ h1 {
     width: 1200px;
     margin: 1rem auto;
     padding: 2rem 0rem;
-    box-shadow: 0px 0px 5px rgb(196, 196, 196);
     border-radius: 3px;
-    font-family: "Catamaran";
+    font-family: "Fira sans";
     h2 {
-        color: black;
+        color: map-get($colors, text-primary);
         font-family: map-get($fonts, heading);
+        font-style: italic;
     }
     p {
-        color: black;
+        color: map-get($colors, text-primary);
         margin-top: 1rem;
         max-width: 90%;
         text-align: center;
-        font-family: map-get($fonts, body);
-        font-size: map-get($font-size, body);
+        font-family: map-get($fonts, heading);
     }
     li {
         transition: all 0.2s;
@@ -71,16 +71,20 @@ h1 {
         -moz-transform-style: preserve-3d;
         -webkit-transition: all 0.2s;
     }
-    li:hover {
-        scale: 1.1;
-        cursor: pointer;
-        -webkit-transform: scale(1.1);
-    }
+    // li:hover {
+    //     scale: 1.1;
+    //     cursor: pointer;
+    //     -webkit-transform: scale(1.1);
+    // }
 }
 .some-wrapper__icon-container {
     display: flex;
     list-style: none;
     margin: 2rem 0rem 0.5rem 0rem;
+    img {
+        width: 30px;
+        height: 30px;
+    }
 }
 .some-container {
     display: grid;

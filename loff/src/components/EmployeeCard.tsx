@@ -1,5 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInstagram } from "@fortawesome/free-brands-svg-icons";
+import mailIcon from "../icon-svg/Mail-ikon.svg";
+import instagram from "../logo-some/Instagram-ikon.svg";
 
 function EmployeeCard(props: {
   src?: string;
@@ -23,13 +25,21 @@ function EmployeeCard(props: {
       <div className="employeeCard__social-container">
         <p>
           <a href={`https://www.instagram.com/${props.instagram}/`}>
-            <FontAwesomeIcon icon={faInstagram} />
-            {props.instagram}
+            <img
+              src={instagram}
+              alt="instagram"
+              className="employeeCard__social-container__icon"
+            />
           </a>
         </p>
-        <p>
-          <a href={`mailto:${props.email}@email.com`}>{props.email}</a>
-        </p>
+
+        <a href={`mailto:${props.email}@email.com`}>
+          <img
+            src={mailIcon}
+            alt="mailicon"
+            className="employeeCard__social-container__icon"
+          />
+        </a>
       </div>
     </div>
   );
