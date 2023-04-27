@@ -1,6 +1,6 @@
 import Nav from "./components/Nav";
 import "./App.css";
-import { BrowserRouter as Router, Link, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./page-components/Home";
 import Serier from "./page-components/Serier";
 import Bassene from "./page-components/Bassene";
@@ -34,11 +34,6 @@ function App() {
         buttonText={"I understand"}
         expires={365}
         flipButtons={true}
-        // enableDeclineButton={true}
-        // onDecline={() => {}}
-        // declineCookieValue={"true"}
-        // declineButtonText={"Decline"}
-        // declineButtonStyle={{ background: "red", fontSize: "20px" }}
       >
         This site uses cookies to enhance the user experience.
       </CookieConsent>

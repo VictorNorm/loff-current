@@ -17,7 +17,7 @@ function SponsorContainer(props: {
         <img
           src={convertImageUrl(newBaseImageUrl + props.image)}
           className="sponsor-image"
-          alt="Sponsors image"
+          alt="Sponsors"
         />
       </div>
       <div className="sponsor-container__text-container">

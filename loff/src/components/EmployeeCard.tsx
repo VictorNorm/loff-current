@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faInstagram } from "@fortawesome/free-brands-svg-icons";
 import mailIcon from "../icon-svg/Mail-ikon.svg";
 import instagram from "../logo-some/Instagram-ikon.svg";
 

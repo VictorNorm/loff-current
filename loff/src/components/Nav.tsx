@@ -1,13 +1,5 @@
 import { randomNumber } from "../functions/randomNumber";
 import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPodcast } from "@fortawesome/free-solid-svg-icons";
-import {
-  faFacebookSquare,
-  faYoutube,
-  faInstagram,
-  faTiktok,
-} from "@fortawesome/free-brands-svg-icons";
 import Wrapper from "./layout/Wrapper";
 import logo1 from "../logo-svg/logo-1.svg";
 import logo2 from "../logo-svg/logo-2.svg";

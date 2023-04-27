@@ -11,7 +11,7 @@ function SeriesContainer(props: {
   return (
     <div className="series-container">
       <div className="series-container__image-container">
-        <img src={props.image} alt="Image of series"></img>
+        <img src={props.image} alt="Series"></img>
       </div>
       <div className="series-container__text-container">
         <h2>{props.title}</h2>
