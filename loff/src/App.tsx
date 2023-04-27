@@ -10,7 +10,7 @@ import CookieConsent from "react-cookie-consent";
 
 function App() {
   return (
-    <Router basename="/build/index.html">
+    <Router>
       <Nav />
       <Routes>
         <Route path="/" element={<Home />}></Route>
