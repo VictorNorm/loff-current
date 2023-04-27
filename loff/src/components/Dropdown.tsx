@@ -45,7 +45,6 @@ function Dropdown() {
     }
     fetchBassene();
   }, []);
-  console.log(dropdownData);
   if (isLoading || !dropdownData) {
     return (
       <Wrapper>
@@ -64,14 +63,7 @@ function Dropdown() {
           className="dropdown__top-container__arrow"
           onClick={() => setIsActive(!isActive)}
         >
-          <FontAwesomeIcon
-            icon={faArrowDown}
-            onClick={() =>
-              function (event: any) {
-                console.log(event.target + "asdasdas");
-              }
-            }
-          />
+          <FontAwesomeIcon icon={faArrowDown} />
         </div>
       </div>
       {isActive && (

@@ -27,7 +27,6 @@ function Details() {
         const url = newBaseUrl + query;
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data.result);
         setShow(data.result);
       } catch (error) {
         setError("An error occured, try reloading the page.");
