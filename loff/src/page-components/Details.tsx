@@ -124,7 +124,7 @@ function Details() {
           </section>
           <h2 id="demography">Demografi</h2>
           <div className="youtube-image-container">
-            <img src={youtubeLogo} id="youtube-logo" />
+            <img src={youtubeLogo} id="youtube-logo" alt="youtubelogo" />
           </div>
           <Graph
             age1={currentShow.age_1317}

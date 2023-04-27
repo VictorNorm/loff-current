@@ -24,7 +24,7 @@ function SponsorContainer(props: {
         <h5>{props.name}</h5>
         <p>{props.desc}</p>
         <div className="sponsor-container__text-container__sponsor-info">
-          {props.hovedsponsor == true ? (
+          {props.hovedsponsor === true ? (
             <div>
               <img src={checkbox} alt="checkbox" className="checkbox" />
               <h6>Hovedsponsor</h6>
@@ -39,7 +39,7 @@ function SponsorContainer(props: {
               <h6>Hovedsponsor</h6>
             </div>
           )}
-          {props.konkurranser == true ? (
+          {props.konkurranser === true ? (
             <div>
               <img src={checkbox} alt="checkbox" className="checkbox" />
               <h6>Konkurranser</h6>
@@ -54,7 +54,7 @@ function SponsorContainer(props: {
               <h6>Konkurranser</h6>
             </div>
           )}
-          {props.krysspublisering == true ? (
+          {props.krysspublisering === true ? (
             <div>
               <img src={checkbox} alt="checkbox" className="checkbox" />
               <h6>Krysspublisering</h6>

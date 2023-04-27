@@ -17,7 +17,7 @@ function Carousel(props: { images: any }) {
         return (
           <Link to={"/serier"} key={index}>
             <div className="carousel-image-container">
-              <img src={image.src} alt="carousel image" />
+              <img src={image.src} alt="carousel" />
             </div>
           </Link>
         );

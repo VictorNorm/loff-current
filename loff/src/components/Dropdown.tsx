@@ -87,7 +87,7 @@ function Dropdown() {
               newBaseImageUrl +
               convertImageUrl(dropdownData.images[0].asset._ref)
             }
-            alt=""
+            alt="dropdownimg"
           />
           <div>
             <h6>{dropdownData.boxHeading4}</h6>
@@ -97,7 +97,7 @@ function Dropdown() {
                 newBaseImageUrl +
                 convertImageUrl(dropdownData.images[1].asset._ref)
               }
-              alt=""
+              alt="dropdownimg"
             />
             <h6>{dropdownData.boxHeading5}</h6>
             <p>{dropdownData.boxExcerpt3}</p>
@@ -106,7 +106,7 @@ function Dropdown() {
                 newBaseImageUrl +
                 convertImageUrl(dropdownData.images[2].asset._ref)
               }
-              alt=""
+              alt="dropdownimg"
             />
           </div>
         </div>

@@ -61,6 +61,7 @@ function OmLoff() {
           <img
             className="om-loff__image"
             src={newBaseImageUrl + convertImageUrl(about[7])}
+            alt="omloffimg"
           />
           <Dropdown />
         </section>
