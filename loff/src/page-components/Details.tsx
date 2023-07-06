@@ -56,7 +56,7 @@ function Details() {
         <title>Loff | Serie</title>
         <meta
           name="description"
-          content="Les om detaljer, demografi og seertall av alle Loffs serier og podcast, du kan også se serien på youtube."
+          content="Les om detaljer, demografi og seertall av alle Loffs serier og podkast, du kan også se serien på youtube."
         />
       </Helmet>
       <Wrapper>
